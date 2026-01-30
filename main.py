@@ -42,7 +42,6 @@ def predict_loan(features:Features):
     try:
        model=app.state.model
        data=pd.DataFrame([features.dict()])
-       data.columns = [" " + col for col in data.columns]
        predict=model.predict(data)[0]
        return {"prediction":predict.strip()}
     except Exception as e:
